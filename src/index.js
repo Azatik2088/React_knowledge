@@ -1,17 +1,36 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
 
+const firstName = "Azatik";
+const lastName = "Shagabiev"
+const currentYear = new Date().getFullYear();
+const elements = ["1", "2", "3", "4", "5",]
+function getRandom() {
+  return Math.floor(Math.random() * 10);
+}
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+  <div>
+    <h1>Какое-то значение</h1>
+    <h1>{firstName} {lastName}</h1>
+    <ul>
+      {/* <li>Элемент 1</li>
+      <li>Элемент 2</li>
+      <li>Элемент 3</li>
+      <li>Элемент 4</li>
+      <li>Элемент 5</li>
+      <li>Элемент 6</li> */}
+      {/* {elements.map(el => <li>{`Элемент ${el}`}</li>)} //темка нереальная */}
+      {Array.from({ length: 5 }, (_, item) =>
+        <li>{`Элемент ${getRandom() % 2 === 0 ? 'EVEN' : 'ODD'}`}</li>)}
+    </ul>
+    <p>© Авторские права мои {currentYear}</p>
+    {/* <p>© Авторские права мои {new.Date().getFull;Year()}</p> */}
+  </div>
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+//как можно было написать
+// const h1Element = document.createElement("h1");
+// h1Element.innerText = "Hello World!";
+// const root = document.getElementById("root");
+// root.appendChild(h1Element);
