@@ -1,14 +1,14 @@
 import React from "react";
 
-const ContentItem = () => {
+const ContentItem = (props) => {
     return (
         <div>
-            {Array.from({ length: 5 }, (_, item) =>
+            {props.setOfLabels.map((item, index) =>
                 <div className="card m-3" >
-                    <img src={`https://picsum.photos/${200 + item}/100`} class="card-img-top" alt="..." />
+                    <img src={`https://picsum.photos/${200 + index}/50`} class="card-img-top" alt="..." />
                     <div className="card-body">
-                        <h5 className="card-title">Card title</h5>
-                        <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card’s content.</p>
+                        <h5 className="card-title">{item.cardTitle}</h5>
+                        <p className="card-text">{item.cardText}</p>
                     </div>
                 </div>
             )}
